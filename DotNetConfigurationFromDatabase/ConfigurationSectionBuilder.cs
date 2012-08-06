@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml;
@@ -12,7 +10,7 @@ namespace DotNetConfigurationFromDatabase
     {
         public TSection BuildSection<TSection>(string xml) where TSection : System.Configuration.ConfigurationSection
         {
-            var myEncoder = new System.Text.ASCIIEncoding();
+            var myEncoder = new ASCIIEncoding();
             byte[] bytes = myEncoder.GetBytes(xml);
             var ms = new MemoryStream(bytes);
             var xmlReader = XmlReader.Create(ms);
